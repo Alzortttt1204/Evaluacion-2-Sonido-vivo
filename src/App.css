@@ -1,0 +1,1041 @@
+/* =====================================================================
+   SONIDO VIVO - Estilos
+   1. Ajustes para que Bootstrap no cambie el diseño original
+   2. Estilos originales de la primera entrega (css/estilos.css)
+   3. Estilos de los elementos nuevos (menú, carrito, filtros, panel, perfil, 404)
+   4. Diseño responsivo (tablet y celular)
+   5. Tema claro
+   ===================================================================== */
+
+
+/* ---------------------------------------------------------------------
+   1. CONVIVENCIA CON BOOTSTRAP
+   Bootstrap trae sus propios tamaños de títulos, márgenes y modelo de caja.
+   Aquí se devuelven los valores que tenía el sitio original.
+   --------------------------------------------------------------------- */
+
+h1, h2, h3 {
+	font-weight: bold;
+	line-height: 1.5;
+}
+
+h1 { font-size: 2em; margin: 0.67em 0; }
+h2 { font-size: 1.5em; margin: 0.83em 0; }
+h3 { font-size: 1.17em; margin: 1em 0; }
+p { margin: 1em 0; }
+
+legend {
+	float: none;
+	width: auto;
+	margin-bottom: 0;
+	line-height: inherit;
+}
+
+/* Los formularios originales medían su ancho sin contar el padding */
+#formulario-login,
+#formulario-registro,
+#formulario-contacto {
+	box-sizing: content-box;
+}
+
+/* Bootstrap hace que botones y campos hereden la fuente de la página;
+   en el sitio original usaban la fuente por defecto del navegador */
+button,
+.btn,
+.form-control,
+.form-select {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13.3333px;
+}
+
+button {
+	line-height: normal;
+}
+
+#contenido .form-select {
+	padding-right: 36px;
+}
+
+#contenido .form-control:focus,
+#contenido .form-select:focus {
+	box-shadow: 0 0 0 3px rgba(232, 150, 60, 0.25);
+}
+
+#contenido .form-control.is-invalid,
+#contenido .form-select.is-invalid {
+	border-color: #dc3545;
+}
+
+.app-container {
+	min-height: 100vh;
+}
+
+
+/* ---------------------------------------------------------------------
+   2. ESTILOS ORIGINALES (css/estilos.css de la primera entrega)
+   Solo se agregaron a las listas los formularios nuevos
+   (#formulario-producto y #formulario-checkout) y sus tipos de campo.
+   --------------------------------------------------------------------- */
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	background-color: #181818;
+	color: #f2f2f2;
+	line-height: 1.5;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+img {
+	max-width: 100%;
+}
+
+#contenido {
+	max-width: 1100px;
+	margin: 20px auto;
+	padding: 0 20px;
+	box-sizing: border-box;
+}
+
+.seccion {
+	background-color: #242424;
+	padding: 20px;
+	border-radius: 4px;
+	margin-bottom: 15px;
+	box-shadow: 0 2px 8px gray;
+	line-height: 1.5;
+}
+
+#inicio,
+#video,
+#destacados {
+	text-align: center;
+}
+
+#encabezado {
+	background-color: black;
+	color: white;
+	text-align: center;
+	padding: 20px;
+	box-shadow: 0 4px 10px gray;
+	border-bottom: 2px solid #e8963c;
+}
+
+#encabezado h1 {
+	letter-spacing: 3px;
+	text-transform: uppercase;
+	margin: 0 0 5px;
+}
+
+#menu-principal ul {
+	list-style: none;
+	padding: 0;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 15px;
+	justify-content: center;
+	margin: 15px 0 0;
+}
+
+#menu-principal ul li a {
+	text-decoration: none;
+	background-color: #e8963c;
+	color: #101010;
+	padding: 10px 20px;
+	border-radius: 6px;
+	font-weight: bold;
+	transition: background-color 0.3s ease;
+}
+
+#menu-principal ul li a:hover {
+	background-color: #f0a75a;
+}
+
+#pie {
+	background-color: black;
+	text-align: center;
+	padding: 15px;
+	color: #cccccc;
+	border-top: 3px solid #e8963c;
+	font-size: 14px;
+}
+
+.grilla-productos {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 20px;
+	justify-content: center;
+	padding: 20px 0;
+}
+
+.tarjeta-producto {
+	background-color: #242424;
+	border: 1px solid #333333;
+	border-radius: 5px;
+	width: 240px;
+	box-sizing: border-box;
+	text-align: center;
+	padding: 15px;
+	box-shadow: 0 4px 10px gray;
+	transition: transform 0.3s ease;
+	overflow: hidden;
+}
+
+.tarjeta-producto:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+.espacio-imagen {
+	width: 100%;
+	height: 160px;
+	overflow: hidden;
+	background-color: #333333;
+	border-radius: 4px;
+}
+
+.espacio-imagen img {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+	display: block;
+}
+
+.tarjeta-producto h3 {
+	font-size: 16px;
+	margin: 10px 0 5px;
+}
+
+.descripcion-corta {
+	font-size: 13px;
+	color: #cccccc;
+	margin-bottom: 10px;
+}
+
+.precio {
+	font-weight: bold;
+	color: #e8963c;
+	font-size: 18px;
+	margin-bottom: 10px;
+}
+
+.tarjeta-producto button {
+	background-color: #e8963c;
+	color: #101010;
+	padding: 8px 16px;
+	border-radius: 4px;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.tarjeta-producto button:hover {
+	background-color: #f0a75a;
+}
+
+#inicio h2 {
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	margin-bottom: 15px;
+}
+
+#inicio p {
+	max-width: 600px;
+	margin: 0 auto 20px;
+	color: #cccccc;
+}
+
+.btn-ver-productos {
+	display: inline-block;
+	background-color: #e8963c;
+	color: #101010;
+	padding: 12px 28px;
+	border-radius: 4px;
+	font-weight: bold;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+}
+
+.btn-ver-productos:hover {
+	background-color: #f0a75a;
+}
+
+#video video {
+	width: 100%;
+	max-width: 700px;
+	border-radius: 5px;
+	margin-top: 15px;
+	background-color: #000000;
+	box-shadow: 0 4px 10px gray;
+}
+
+.volver {
+	display: inline-block;
+	margin-bottom: 20px;
+	color: #e8963c;
+	font-weight: bold;
+}
+
+.detalle-grid {
+	display: flex;
+	gap: 30px;
+	flex-wrap: wrap;
+}
+
+.detalle-imagen-wrap {
+	width: 100%;
+	max-width: 320px;
+	height: 320px;
+	overflow: hidden;
+	background-color: #333333;
+	border-radius: 5px;
+	box-shadow: 0 4px 10px gray;
+}
+
+.detalle-imagen-wrap img {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+	display: block;
+}
+
+.detalle-info {
+	flex: 1;
+	min-width: 260px;
+}
+
+.detalle-info h1 {
+	margin-bottom: 10px;
+}
+
+.detalle-info label {
+	font-weight: bold;
+}
+
+.detalle-info input[type="number"] {
+	width: 80px;
+	box-sizing: border-box;
+	padding: 8px;
+	border-radius: 4px;
+	border: 1px solid #444444;
+	background-color: #242424;
+	color: #f2e9dc;
+}
+
+.detalle-info input[type="number"]:focus {
+	outline: none;
+	border: 2px solid #e8963c;
+	background-color: #2d2d2d;
+}
+
+.detalle-info button {
+	background-color: #e8963c;
+	color: #101010;
+	padding: 10px 24px;
+	border-radius: 4px;
+	font-weight: bold;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+}
+
+.detalle-info button:hover {
+	background-color: #f0a75a;
+}
+
+#mensaje-subtotal {
+	font-weight: bold;
+	color: #e8963c;
+}
+
+#formulario-login,
+#formulario-registro,
+#formulario-contacto,
+#formulario-producto,
+#formulario-checkout {
+	width: 80%;
+	max-width: 480px;
+	margin: 40px auto;
+	background-color: #242424;
+	border: 1px solid #444444;
+	border-radius: 10px;
+	padding: 25px;
+	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+#formulario-login fieldset,
+#formulario-registro fieldset,
+#formulario-contacto fieldset,
+#formulario-producto fieldset,
+#formulario-checkout fieldset {
+	border: 2px solid #e8963c;
+	border-radius: 8px;
+	padding: 25px;
+}
+
+#formulario-login legend,
+#formulario-registro legend,
+#formulario-contacto legend,
+#formulario-producto legend,
+#formulario-checkout legend {
+	font-size: 24px;
+	font-weight: bold;
+	padding: 5px 15px;
+	color: #e8963c;
+}
+
+#formulario-login input[type="text"],
+#formulario-login input[type="email"],
+#formulario-login input[type="password"],
+#formulario-registro input[type="text"],
+#formulario-registro input[type="email"],
+#formulario-registro input[type="date"],
+#formulario-registro input[type="tel"],
+#formulario-registro input[type="password"],
+#formulario-registro select,
+#formulario-contacto input[type="text"],
+#formulario-contacto input[type="email"],
+#formulario-contacto select,
+#formulario-contacto textarea,
+#formulario-producto input[type="text"],
+#formulario-producto input[type="number"],
+#formulario-producto select,
+#formulario-producto textarea,
+#formulario-checkout input[type="text"],
+#formulario-checkout input[type="email"],
+#formulario-checkout input[type="tel"],
+#formulario-checkout select {
+
+	width: 100%;
+	box-sizing: border-box;
+	padding: 10px;
+	margin-top: 5px;
+	background-color: #333333;
+	color: white;
+	border: 1px solid #555555;
+	border-radius: 5px;
+}
+
+#formulario-login input::placeholder,
+#formulario-registro input::placeholder,
+#formulario-contacto input::placeholder,
+#formulario-contacto textarea::placeholder,
+#formulario-producto input::placeholder,
+#formulario-producto textarea::placeholder,
+#formulario-checkout input::placeholder {
+	color: #aaaaaa;
+}
+
+#formulario-login input:focus,
+#formulario-login select:focus,
+#formulario-registro input:focus,
+#formulario-registro select:focus,
+#formulario-contacto input:focus,
+#formulario-contacto select:focus,
+#formulario-contacto textarea:focus,
+#formulario-producto input:focus,
+#formulario-producto select:focus,
+#formulario-producto textarea:focus,
+#formulario-checkout input:focus,
+#formulario-checkout select:focus {
+	outline: none;
+	border: 2px solid #e8963c;
+	background-color: #2d2d2d;
+}
+
+#formulario-registro select,
+#formulario-contacto input[type="text"],
+#formulario-contacto input[type="email"],
+#formulario-contacto textarea {
+	cursor: pointer;
+}
+
+#formulario-login button,
+#formulario-registro button,
+#formulario-contacto button,
+#formulario-producto button,
+#formulario-checkout button {
+	background-color: #e8963c;
+	color: #101010;
+	border: none;
+	padding: 12px 30px;
+	border-radius: 5px;
+	cursor: pointer;
+	font-weight: bold;
+	transition: 0.3s;
+}
+
+#formulario-login button:hover,
+#formulario-registro button:hover,
+#formulario-contacto button:hover,
+#formulario-producto button:hover,
+#formulario-checkout button:hover {
+	background-color: #f0a75a;
+	transform: translateY(-2px);
+}
+
+.enlace-secundario {
+	text-align: center;
+	margin-top: 20px;
+	font-size: 14px;
+}
+
+.enlace-secundario a {
+	color: #e8963c;
+	font-weight: bold;
+}
+
+#formulario-contacto textarea,
+#formulario-producto textarea {
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	font-size: 14px;
+	resize: vertical;
+}
+
+
+/* ---------------------------------------------------------------------
+   3. ELEMENTOS NUEVOS DE LA VERSIÓN REACT
+   Usan los mismos colores del sitio: fondo oscuro y acento naranjo #e8963c.
+   --------------------------------------------------------------------- */
+
+/* Menú: enlace de la página actual, contador del carrito, tema y cerrar sesión */
+#menu-principal ul li a.active {
+	background-color: #f0a75a;
+	box-shadow: inset 0 -3px 0 #101010;
+}
+
+.contador-carrito {
+	display: inline-block;
+	min-width: 20px;
+	margin-left: 6px;
+	padding: 0 6px;
+	border-radius: 10px;
+	background-color: #101010;
+	color: #e8963c;
+	font-size: 12px;
+	line-height: 20px;
+	text-align: center;
+}
+
+.btn-menu,
+.btn-salir,
+.btn-tema {
+	font-family: inherit;
+	font-size: inherit;
+	font-weight: bold;
+	line-height: inherit;
+	border-radius: 6px;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+}
+
+/* margin negativo: el botón se ve del mismo tamaño que los enlaces sin agrandar el menú */
+.btn-salir {
+	background-color: #e8963c;
+	color: #101010;
+	border: none;
+	padding: 10px 20px;
+	margin: -10px 0;
+}
+
+.btn-salir:hover {
+	background-color: #f0a75a;
+}
+
+.btn-tema {
+	background-color: transparent;
+	color: #e8963c;
+	border: 2px solid #e8963c;
+	padding: 8px 18px;
+	margin: -10px 0;
+}
+
+.btn-tema:hover {
+	background-color: #e8963c;
+	color: #101010;
+}
+
+/* El botón ☰ solo aparece en celulares (ver sección 4) */
+.btn-menu {
+	display: none;
+	background-color: #e8963c;
+	color: #101010;
+	border: none;
+	padding: 10px 20px;
+	margin-top: 15px;
+}
+
+/* Tarjetas: botones de carrito y favorito */
+.acciones-tarjeta {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	justify-content: center;
+}
+
+.acciones-tarjeta .btn-agregar {
+	flex-basis: 100%;
+}
+
+.tarjeta-producto button:disabled,
+.detalle-info button:disabled {
+	opacity: 0.6;
+	cursor: not-allowed;
+}
+
+.tarjeta-producto .btn-favorito,
+.detalle-info .btn-favorito {
+	background-color: transparent;
+	color: #e8963c;
+	border: 2px solid #e8963c;
+}
+
+.tarjeta-producto .btn-favorito {
+	padding: 8px 10px;
+}
+
+.tarjeta-producto .btn-favorito.activo,
+.detalle-info .btn-favorito.activo {
+	background-color: #e8963c;
+	color: #101010;
+}
+
+/* Catálogo: barra de filtros */
+.barra-filtros {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 15px;
+	justify-content: center;
+	margin: 10px 0;
+}
+
+.campo-filtro {
+	flex: 1 1 220px;
+	max-width: 320px;
+}
+
+.campo-filtro .form-label {
+	font-weight: bold;
+}
+
+.barra-filtros .form-control,
+.barra-filtros .form-select {
+	background-color: #333333;
+	color: white;
+	border: 1px solid #555555;
+}
+
+.barra-filtros .form-control::placeholder {
+	color: #aaaaaa;
+}
+
+.barra-filtros .form-control:focus,
+.barra-filtros .form-select:focus {
+	border-color: #e8963c;
+	background-color: #2d2d2d;
+	color: white;
+}
+
+.resultado-filtro {
+	text-align: center;
+	color: #cccccc;
+	font-size: 14px;
+	margin: 5px 0 0;
+}
+
+.mensaje-vacio {
+	text-align: center;
+	color: #cccccc;
+}
+
+/* Detalle de producto */
+.selector-cantidad {
+	margin: 15px 0 20px;
+}
+
+.acciones-detalle {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+}
+
+/* Carrito y checkout */
+.carrito-vacio {
+	text-align: center;
+}
+
+.carrito-layout {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 25px;
+	align-items: flex-start;
+}
+
+.carrito-items {
+	flex: 2 1 460px;
+	min-width: 0;
+}
+
+.carrito-checkout {
+	flex: 1 1 340px;
+}
+
+.fila-carrito {
+	display: grid;
+	grid-template-columns: 70px 1fr auto auto auto;
+	align-items: center;
+	gap: 15px;
+	padding: 12px 0;
+	border-bottom: 1px solid #333333;
+}
+
+.fila-carrito-imagen {
+	width: 70px;
+	height: 70px;
+	object-fit: contain;
+	background-color: #333333;
+	border-radius: 4px;
+}
+
+.fila-carrito-info h3 {
+	font-size: 16px;
+	margin: 0 0 4px;
+}
+
+.fila-carrito-info p {
+	margin: 0;
+	font-size: 13px;
+	color: #cccccc;
+}
+
+.fila-carrito-cantidad {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.fila-carrito-cantidad button {
+	width: 32px;
+	height: 32px;
+	border: none;
+	border-radius: 4px;
+	background-color: #e8963c;
+	color: #101010;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.fila-carrito-cantidad button:disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
+}
+
+.fila-carrito-subtotal {
+	margin: 0;
+	min-width: 100px;
+	text-align: right;
+}
+
+.btn-eliminar,
+.btn-vaciar {
+	background-color: transparent;
+	color: #e8963c;
+	border: 2px solid #e8963c;
+	padding: 6px 14px;
+	border-radius: 4px;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.btn-eliminar:hover,
+.btn-vaciar:hover {
+	background-color: #e8963c;
+	color: #101010;
+}
+
+.total-carrito {
+	text-align: right;
+	padding-top: 15px;
+}
+
+.total-carrito p {
+	margin: 5px 0;
+}
+
+.total-carrito .precio {
+	font-size: 22px;
+}
+
+/* Los formularios del carrito y del panel ocupan el ancho de su columna */
+#formulario-producto,
+#formulario-checkout {
+	width: 100%;
+	max-width: none;
+	margin: 0;
+}
+
+.nota-formulario {
+	font-size: 13px;
+	color: #cccccc;
+}
+
+.botones-formulario {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+}
+
+#formulario-producto .btn-secondary {
+	background-color: #555555;
+	color: #f2f2f2;
+}
+
+.alerta-formulario {
+	margin-bottom: 15px;
+}
+
+/* Panel de Control */
+.panel-admin {
+	display: flex;
+	flex-direction: column;
+	gap: 25px;
+}
+
+.panel-admin-formulario {
+	width: 100%;
+	max-width: 560px;
+	margin: 0 auto;
+}
+
+.panel-admin-tabla {
+	min-width: 0;
+}
+
+.panel-admin-tabla h3 {
+	margin-top: 0;
+}
+
+.tabla-admin {
+	font-size: 14px;
+	vertical-align: middle;
+}
+
+.tabla-admin img {
+	width: 48px;
+	height: 48px;
+	object-fit: contain;
+	background-color: #333333;
+	border-radius: 4px;
+}
+
+.acciones-admin {
+	white-space: nowrap;
+}
+
+.acciones-admin .btn {
+	margin-right: 5px;
+}
+
+.stock-bajo {
+	color: #ff8c5a;
+	font-weight: bold;
+}
+
+/* Mi Perfil */
+.datos-perfil {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 0 25px;
+	margin-bottom: 15px;
+}
+
+.datos-perfil p {
+	margin: 8px 0;
+}
+
+button.btn-ver-productos {
+	border: none;
+	font-family: inherit;
+	font-size: inherit;
+}
+
+/* Página 404 y compra confirmada */
+#error-404,
+#pedido-confirmado {
+	text-align: center;
+}
+
+.codigo-error {
+	font-size: 80px;
+	font-weight: bold;
+	color: #e8963c;
+	letter-spacing: 6px;
+	line-height: 1;
+	margin: 10px 0 0;
+}
+
+
+/* ---------------------------------------------------------------------
+   4. DISEÑO RESPONSIVO
+   --------------------------------------------------------------------- */
+
+/* Tablet: la fila del carrito pasa a dos columnas */
+@media (max-width: 768px) {
+	.fila-carrito {
+		grid-template-columns: 70px 1fr;
+	}
+
+	.fila-carrito-cantidad,
+	.fila-carrito-subtotal,
+	.fila-carrito .btn-eliminar {
+		grid-column: 2;
+		justify-self: start;
+	}
+
+	.fila-carrito-subtotal {
+		text-align: left;
+	}
+}
+
+/* Celular */
+@media (max-width: 600px) {
+	#encabezado h1 {
+		font-size: 1.6em;
+		letter-spacing: 2px;
+	}
+
+	/* Menú: se oculta la lista y aparece el botón ☰ */
+	.btn-menu {
+		display: inline-block;
+	}
+
+	#menu-principal ul {
+		display: none;
+		flex-direction: column;
+		align-items: stretch;
+		gap: 10px;
+	}
+
+	#menu-principal ul.abierto {
+		display: flex;
+	}
+
+	#menu-principal ul li a,
+	.btn-salir,
+	.btn-tema {
+		display: block;
+		width: 100%;
+		margin: 0;
+		text-align: center;
+		box-sizing: border-box;
+	}
+
+	#contenido {
+		padding: 0 12px;
+	}
+
+	/* Formularios a todo el ancho */
+	#formulario-login,
+	#formulario-registro,
+	#formulario-contacto {
+		width: auto;
+		margin: 20px 0;
+		padding: 15px;
+	}
+
+	#formulario-login fieldset,
+	#formulario-registro fieldset,
+	#formulario-contacto fieldset,
+	#formulario-producto fieldset,
+	#formulario-checkout fieldset {
+		padding: 15px;
+	}
+
+	/* Tarjetas, detalle y perfil en una sola columna */
+	.tarjeta-producto {
+		width: 100%;
+		max-width: 320px;
+	}
+
+	.detalle-imagen-wrap {
+		max-width: 100%;
+		height: 260px;
+	}
+
+	.datos-perfil {
+		grid-template-columns: 1fr;
+	}
+
+	.total-carrito {
+		text-align: left;
+	}
+}
+
+
+/* ---------------------------------------------------------------------
+   5. TEMA CLARO (se activa con el botón "Modo claro" del menú)
+   El encabezado y el pie se mantienen negros como en el diseño original.
+   --------------------------------------------------------------------- */
+
+.tema-claro {
+	background-color: #f4f1ec;
+	color: #1f1f1f;
+}
+
+.tema-claro #contenido .seccion,
+.tema-claro #contenido .tarjeta-producto,
+.tema-claro #formulario-login,
+.tema-claro #formulario-registro,
+.tema-claro #formulario-contacto,
+.tema-claro #formulario-producto,
+.tema-claro #formulario-checkout {
+	background-color: #ffffff;
+	color: #1f1f1f;
+	border-color: #dddddd;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.tema-claro .descripcion-corta,
+.tema-claro #inicio p,
+.tema-claro .resultado-filtro,
+.tema-claro .mensaje-vacio,
+.tema-claro .nota-formulario,
+.tema-claro .fila-carrito-info p {
+	color: #555555;
+}
+
+.tema-claro .precio,
+.tema-claro .volver,
+.tema-claro .enlace-secundario a,
+.tema-claro #mensaje-subtotal,
+.tema-claro .codigo-error {
+	color: #b5651d;
+}
+
+.tema-claro .espacio-imagen,
+.tema-claro .detalle-imagen-wrap,
+.tema-claro .fila-carrito-imagen,
+.tema-claro .tabla-admin img {
+	background-color: #eeeeee;
+}
+
+.tema-claro #contenido .form-control,
+.tema-claro #contenido .form-select,
+.tema-claro .detalle-info input[type="number"] {
+	background-color: #ffffff;
+	color: #1f1f1f;
+	border-color: #bbbbbb;
+}
+
+.tema-claro #contenido .form-control:focus,
+.tema-claro #contenido .form-select:focus {
+	background-color: #fffaf3;
+	border-color: #e8963c;
+}
+
+.tema-claro .fila-carrito {
+	border-bottom-color: #dddddd;
+}
